@@ -1,0 +1,7 @@
+{
+    "vetur.format.options.useTabs": true,
+    "prettier.useTabs": true,
+    "vetur.format.options.tabSize": 4,
+    "prettier.singleQuote": true,
+    "prettier.tabWidth": 4
+}

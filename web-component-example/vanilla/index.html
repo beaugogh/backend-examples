@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+		<title>Web components</title>
+		<style>
+            * {
+                box-sizing: border-box;
+            }
+
+            html {
+                --color-primary: rgb(177, 11, 177);
+                font-family: sans-serif;
+            }
+
+			div {
+				border: 2px solid orange;
+			}
+
+            .highlight {
+                background-color: yellow;
+                /* light DOM style can still overwirte the slotted style in shadow DOM */
+                /* border-bottom: 3px dotted blue; */
+            }
+
+            uc-tooltip {
+                /* light DOM style can still overwrite the host style in shadow DOM */
+                /* border: 2px blue solid; */
+                padding: 3px;
+            }
+
+		</style>
+		<script src="tooltip.js"></script>
+		<script src="confirm-link.js"></script>
+	</head>
+	<body>
+		<p>
+			<uc-tooltip class="important" text="Web components are a set of standards.">
+				<span class="highlight">Web components</span>
+			</uc-tooltip>
+			are awesome!
+		</p>
+
+		<uc-tooltip></uc-tooltip>
+
+		<div>This does not share the web component styles!</div>
+
+		<a is="uc-confirm-link" href="https://www.google.com">Google</a>
+	</body>
+</html>
