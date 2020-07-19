@@ -1,0 +1,16 @@
+- type: parallel
+  name: frontend_tests
+  steps:
+      - name: frontend_unit_tests
+        service: frontend
+        command: ng test --watch=false
+      - name: frontend_e2e_tests
+        service: frontend
+        command: ng e2e --port 4202
+        
+- type: parallel
+  name: backend_tests
+  steps:
+      - name: backend_unit_tests
+        service: backend
+        command: python test.py
