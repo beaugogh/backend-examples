@@ -1,0 +1,65 @@
+<div *ngIf="!showDeduplication" class="register-panel">
+	<mat-form-field style="width: 50%">
+		<input
+			matInput
+			placeholder="please enter your name"
+			[(ngModel)]="username"
+			(keyup)="validateUser()"
+		/>
+	</mat-form-field>
+	<div *ngIf="validated">
+		<button mat-stroked-button autofocus (click)="showDeduplication = true">
+			Proceed
+		</button>
+	</div>
+</div>
+
+<div *ngIf="showDeduplication">
+	<div class="top-bar">
+		<h3 class="inline">
+			Are the following two trials duplicates?
+		</h3>
+		<button
+			class="inline"
+			mat-raised-button
+			color="primary"
+			(click)="yes()"
+		>
+			Yes
+		</button>
+		<button
+			class="inline"
+			mat-raised-button
+			color="warn"
+			(click)="no()"
+		>
+			No
+		</button>
+		<button class="inline" mat-stroked-button (click)="next()">
+			Next
+		</button>
+		<div class="inline">({{ current + 1 }}/{{ pairs.length }})</div>
+	</div>
+	<div class="main">
+		<as-split direction="horizontal">
+			<as-split-area size="50">
+				<div *ngIf="pairs.length > 0" class="trial-panel">
+					<div *ngFor="let item of currentLeft | keyvalue">
+						<b>{{ item.key }}: </b>
+						<p>{{ item.value }}</p>
+					</div>
+				</div>
+			</as-split-area>
+			<as-split-area size="50">
+				<div class="trial-panel">
+					<div *ngIf="pairs.length > 0" class="trial-panel">
+						<div *ngFor="let item of currentRight | keyvalue">
+							<b>{{ item.key }}: </b>
+							<p>{{ item.value }}</p>
+						</div>
+					</div>
+				</div>
+			</as-split-area>
+		</as-split>
+	</div>
+</div>
