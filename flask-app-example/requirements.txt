@@ -1,0 +1,7 @@
+flask-restplus
+
+flask-jwt
+
+Flask-SQLAlchemy
+
+pymysql
