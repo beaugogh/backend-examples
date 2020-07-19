@@ -1,0 +1,51 @@
+.b-posts-container {
+	max-width: 900px;
+	text-align: center;
+	padding: 3px;
+	padding-bottom: 3em;
+	cursor: default;
+}
+
+.b-post-nail {
+	padding: 3px;
+	margin-bottom: 2em;
+	text-align: center;
+}
+
+.b-post-nail img {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	box-shadow: 0px 0px 12px 2px lightgrey;
+}
+
+.b-post-nail img:hover {
+	transform: scale(1.03);
+}
+
+.b-post-nail a {
+	cursor: pointer;
+}
+
+.b-post-nail-date {
+	max-width: 200px !important;
+	color: grey;
+	font-family: 'Roboto', sans-serif, 'Microsoft YaHei';
+	margin-left: auto;
+	margin-right: auto;
+	text-align: left;
+	font-size: small;
+}
+
+.b-post-nail-title {
+	max-width: 232px !important;
+	font-weight: bold;
+	color: #333333;
+	overflow-wrap: break-word;
+	margin-top: 2px;
+	border-left: #cccccc 3px solid;
+	margin-left: auto;
+	margin-right: auto;
+	text-align: left;
+	padding-left: 3px;
+}

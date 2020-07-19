@@ -1,0 +1,103 @@
+/* You can add global styles to this file, and also import other style files */
+@import "bootstrap.min.css";
+@import "../../node_modules/primeng/resources/primeng.min.css";
+@import "~@angular/material/prebuilt-themes/deeppurple-amber.css";
+
+:root {
+  --b-navbar-height: 30px;
+  --b-steelblue: #3f75a2;
+  --b-near-white: #f2f2f2;
+  --b-near-black: #252525;
+  --b-very-light-blue: #fcfdfe;
+}
+
+html,
+body {
+  /* make sure the body does not have a margin */
+  margin: 0;
+  /* this forces the body tag to fill the height of the window */
+  height: 100%;
+  width: 100%;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+a:hover {
+  text-decoration: none;
+  color: inherit;
+}
+
+u {
+  text-decoration: none;
+  border-bottom: 5px solid lightblue;
+}
+
+u:hover {
+  text-decoration: none;
+  border-bottom: 5px solid #63b4cf;
+}
+
+.b-font-lighter {
+  font-weight: lighter;
+}
+
+.b-font-medium {
+  font-size: medium;
+}
+
+img {
+  height: auto;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 0.3em;
+}
+
+.b-post-container {
+  margin-left: 3px;
+  margin-right: 3px;
+  font-family: 'Roboto', sans-serif;
+  font-size: medium;
+  padding-bottom: 8em;
+}
+
+.b-post-container p {
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.b-post-container .figure-caption {
+  border-left: lightgray 3px solid;
+  padding-left: 5px;
+  width: -moz-fit-content !important;
+  width: fit-content !important;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.b-section {
+  padding: 1.1em;
+  width: 100%;
+  max-width: 50em;
+  margin: auto;
+  text-align: justify;
+  line-height: 1.62em;
+}
+
+.b-section::first-letter {
+  text-transform: uppercase;
+  font-size: 230%;
+  letter-spacing: 0.03em;
+  float: left;
+}
+
+.drop_cap {
+  color:#888; 
+  float:left; 
+  font-size:3em; 
+  font-style:normal; 
+  text-shadow:#333 1px 1px;
+  }

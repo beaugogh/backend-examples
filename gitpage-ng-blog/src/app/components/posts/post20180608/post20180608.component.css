@@ -1,0 +1,10 @@
+.phrase {
+	max-width: 500px;
+	text-align: center;
+	margin: auto;
+}
+
+img {
+	width: 100%;
+	height: auto;
+}

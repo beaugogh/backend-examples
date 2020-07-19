@@ -1,0 +1,13 @@
+.b-footer-container {
+	text-align: center;
+	margin: 0px;
+	padding: 3px 3px 12px 3px;
+	background-color: var(--b-near-black);
+	color: var(--b-near-white);
+	font-family: 'Times New Roman';
+	font-size: x-small;
+}
+
+.b-footer-container a {
+	color: var(--b-steelblue);
+}

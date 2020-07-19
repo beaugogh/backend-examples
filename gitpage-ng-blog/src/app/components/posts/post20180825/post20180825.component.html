@@ -1,0 +1,215 @@
+<div class="b-post-container">
+  <h3>{{post.title}}</h3>
+  <h5>fruity, leafy and flowery</h5>
+  <h6 style="color: gray">{{post.dateString}}</h6>
+  <hr>
+
+  <div class="b-section">
+    Style Transfer with deep learning algorithms has been around for some years now. Thanks to the
+    <a href="https://deepart.io/" target="_blank">
+      <u>great work</u>
+    </a> done by
+    <a href="https://arxiv.org/abs/1508.06576" target="_blank">
+      <u>Gatys, et al.</u>
+    </a>, we can explore our artistic expressions in a new way. 
+    But over time, the amazement that you feel when you see a beautifully
+    transferred image wears off. Especially when you see yet another example based on
+    <a href="https://en.wikipedia.org/wiki/The_Starry_Night">
+      <u>starry night</u>
+    </a> style. There must be more to style transfer!
+  </div>  
+
+  <div class="b-section">
+    Came across
+    <a href="https://chrisrodley.com/2017/06/19/dinosaur-flowers/" target="_blank">
+      <u>an artist's creative combination of fruits, flowers (as style) and dinosaurs (as content).</u>
+    </a>
+    This is a really fun way to play with style transfer &mdash; 
+    not just permeating brush strokes and colors into a content
+    image, but recomposing it with concrete "style objects", like flowers and fruits. How cool is that!
+
+    <img class="rounded" src="https://remember1987.files.wordpress.com/2017/06/dinoflowers.jpg">
+    <p class="figure-caption">source:
+      <a href="https://chrisrodley.com/2017/06/19/dinosaur-flowers/" target="_blank">
+        <u>deep dinosaur</u>
+      </a>
+    </p>
+
+    <img class="rounded" src="https://remember1987.files.wordpress.com/2017/06/fruit.png" style="width: 400px;">
+    <p class="figure-caption">source:
+      <a href="https://chrisrodley.com/2017/06/19/dinosaur-flowers/" target="_blank">
+        <u>deep dinosaur</u>
+      </a>
+    </p>
+
+  </div>
+
+  <div class="b-section">
+    Therefore, I decided to create some fruity, flowery and leafy creatures myself. 
+    Instead of directly using the 
+    <a href="https://deepart.io/" target="_blank"><u>deep art</u></a> website, 
+    I tried to use existing source code for style transfer, 
+    so as to have more control over generated images.
+
+    There are different ways to implement style transfer.
+    Most accessible online solutions revolve around Tensorflow, 
+    from which I pick three representatives:
+    <br><br>
+    <ul class="list-group">
+      <li class="list-group-item">Tensorflow with graph execution
+        <a href="https://github.com/chiphuyen/stanford-tensorflow-tutorials/tree/master/assignments/02_style_transfer" target="_blank">
+          <u style="color: steelblue">code</u>
+        </a>
+      </li>
+      <li class="list-group-item">Tensorflow with eager execution
+          <a href="https://colab.research.google.com/github/tensorflow/models/blob/master/research/nst_blogpost/4_Neural_Style_Transfer_with_Eager_Execution.ipynb" target="_blank">
+            <u style="color: steelblue">code</u>
+          </a>
+      </li>
+      <li class="list-group-item">Keras with L-BFGS optimization
+          <a href="https://github.com/fchollet/deep-learning-with-python-notebooks/blob/master/8.3-neural-style-transfer.ipynb" target="_blank">
+            <u style="color: steelblue">code</u>
+          </a>
+      </li>
+    </ul>
+  </div>
+
+  <div class="b-section">
+    While all these solutions are straightforward to implement, Tensorflow with graph execution 
+    requires extra effort to maintain scopes and run sessions during optimization, 
+    which is really counter-intuitive. Luckily the Tensorflow team recently rolled out 
+    the <a href="https://www.tensorflow.org/guide/eager" target="_blank"><u>"eager execution"</u></a> 
+      feature that allows us to write "normal" code. However, the example 
+    code for style transfer (2nd in the list) lacks structure and checkpoint saving, 
+    after all, it is only for a simple demonstration. 
+    Keras was invented to tackle the inconvenience of Tensorflow's graph execution. 
+    In fact, Tensorflow's eager feature is a Keras re-implementation.
+    But Keras is best appreciated when it floats above its backend (Tensorflow in this case),
+    assembling out-of-the-box components. 
+    Tapping into the rich features of Tensorflow from Keras' perspective is non-trivial,
+    and one might as well switch to eager execution. 
+    Probably partially due to this reason, 
+    the example code (3rd in the list) uses L-BFGS optimization, 
+    which is what the authors of style transfer originally proposed, 
+    but lacks flexibility in parameter tunning and checkpoint saving.
+  </div>
+
+  <div class="b-section">
+    So it comes to down to implementing my own version of style transfer, 
+    thanks to the smart people who have laid the ground work.
+    The source code can be found 
+    <a href="https://github.com/beaugogh/style-transfer-tensorflow-eager" target="_blank">
+      <u>here</u>
+    </a>.
+
+    Compared to the previous works, it combines the following aspects:
+
+    <ul>
+      <li>Tensorflow eager execution</li>
+      <li>Organizing the code in an object-oriented manner</li>
+      <li>Including variational loss in the total loss definition</li>
+      <li>Making learning rate automatically adapt to finer gradient descents</li>
+      <li>Periodically saving checkpoints for lor later use</li>
+    </ul> 
+  </div>
+
+  <div class="b-section">
+    Now, let's how it works:
+    <img class="rounded" src="assets/20180825/result/out_foxes.jpg" width="500px"><hr>
+    <img class="rounded" src="assets/20180825/result/out_big_cats.jpg" width="500px"><hr>
+    <img class="rounded" src="assets/20180825/result/out_cat.jpg" width="500px"><hr>
+    <img class="rounded" src="assets/20180825/result/out_lizards.jpg" width="500px"><hr>
+    Not bad, some flowery, leafy and fruity animals come into being.
+    It takes careful consideration in choosing the "right combination" of content and style.
+    After a few iterations, you develop a gut feeling on whether a particular combination will 
+    produce visually pleasing result. But you are still often surprised by the results. 
+    Below are the references for the corresponding contents and styles.
+  </div>
+
+  <table>
+      <tr style="text-align:center;">
+        <th>Content</th>
+        <th>Style</th> 
+        <th>Combination</th>
+      </tr>
+      <tr>
+          <td><img class="rounded" src="assets/20180825/content/foxes.jpg"></td>
+          <td><img class="rounded" src="assets/20180825/style/vege.jpg"></td> 
+          <td><img class="rounded" src="assets/20180825/result/out_foxes.jpg"></td>
+      </tr>
+      <tr>
+          <td><img class="rounded" src="assets/20180825/content/big-cats.jpg"></td>
+          <td><img class="rounded" src="assets/20180825/style/fruit-vege.jpg"></td> 
+          <td><img class="rounded" src="assets/20180825/result/out_big_cats.jpg"></td>
+      </tr>
+      <tr>
+          <td><img class="rounded" src="assets/20180825/content/cat.jpg"></td>
+          <td><img class="rounded" src="assets/20180825/style/flowers.jpg"></td> 
+          <td><img class="rounded" src="assets/20180825/result/out_cat.jpg"></td>
+      </tr>
+      <tr>
+          <td><img class="rounded" src="assets/20180825/content/lizards.jpg"></td>
+          <td><img class="rounded" src="assets/20180825/style/vege.jpg"></td> 
+          <td><img class="rounded" src="assets/20180825/result/out_lizards.jpg"></td>
+        </tr>
+    </table>
+
+
+  <div class="b-section">
+    Would also be interesting to see people grown out of plants, 
+    here is an example of the beatles.
+  </div>
+
+  <table>
+    <tr style="text-align:center;">
+        <th>Content</th>
+        <th>Intermediate</th> 
+        <th>Final</th>
+    </tr>
+    <tr>
+      <td><img class="rounded" src="assets/20180825/content/beatles.jpg"></td>
+      <td><img class="rounded" src="assets/20180825/result/out_beatles_1.jpg"></td>
+      <td><img class="rounded" src="assets/20180825/result/out_beatles_2.jpg"></td>
+    </tr>
+  </table>
+
+  <div class="b-section">
+    Finally, some good old dinosaurs.
+  </div>
+
+  <table>
+    <tr style="text-align:center;">
+        <th>Content</th>
+        <th>Intermediate</th> 
+        <th>Final</th>
+    </tr>
+    <tr>
+      <td><img class="rounded" src="assets/20180825/content/dino2.jpg"></td>
+      <td><img class="rounded" src="assets/20180825/result/out_dino2_a.jpg"></td>
+      <td><img class="rounded" src="assets/20180825/result/out_dino2_b.jpg"></td>
+    </tr>
+    <tr>
+      <td><img class="rounded" src="assets/20180825/content/dino3.jpg"></td>
+      <td><img class="rounded" src="assets/20180825/result/out_dino3_a.jpg"></td>
+      <td><img class="rounded" src="assets/20180825/result/out_dino3_b.jpg"></td>
+    </tr>
+    <tr>
+      <td><img class="rounded" src="assets/20180825/content/dino1.jpg"></td>
+      <td><img class="rounded" src="assets/20180825/result/out_dino1_a.jpg"></td>
+      <td><img class="rounded" src="assets/20180825/result/out_dino1_b.jpg"></td>
+    </tr>
+  </table>
+
+  <div class="b-section">
+    Neural style transfer is really good at "impressionism", any style you throw at it, 
+    it gives you back a fairly good, general "impression". 
+    But it struggles with finer details. 
+    The more "realistic" we demand of the style, the more difficult for 
+    the program to sensibly embed those realistic styles (often as real-world objects) 
+    into the content image. It gives you a rough estimate quickly, but can take much longer 
+    to refine the details, and mostly come off short in the end &mdash; when you
+    look at a combination image closely, the composition does not "logically" hold up. 
+    Nevertheless, you still clearly see after the transfer that,
+    the contents are composed of flowers, leafs and fruits.
+  </div>
+</div>

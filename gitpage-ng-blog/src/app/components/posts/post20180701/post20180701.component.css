@@ -1,0 +1,14 @@
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+u {
+  text-decoration: none;
+  border-bottom: 6px solid orange;
+}
+
+.eng-p {
+  color: gray;
+  font-size: 14px;
+}

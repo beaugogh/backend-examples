@@ -1,0 +1,19 @@
+.b-section img {
+    max-width: 100%;
+    margin-bottom: 1px;
+}
+
+table {
+    width: 95%;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 2em;
+    margin-bottom: 2em;
+}
+th, td {
+    border: 1px solid lightgray;
+}
+table tr td img {
+    width: 85%;
+    max-width: 300px;
+}

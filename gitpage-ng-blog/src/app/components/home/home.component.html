@@ -1,0 +1,19 @@
+<div
+	class="container b-posts-container"
+	data-infinite-scroll
+	[infiniteScrollDistance]="1"
+	[infiniteScrollThrottle]="1000"
+	(scrolled)="onScrollDown()"
+>
+	<p-dataGrid [value]="postService.visiblePosts" [paginator]="false">
+		<ng-template let-post pTemplate="item">
+			<div class="b-post-nail ui-g-12 ui-md-4">
+				<a [routerLink]="[post.stamp]" target="_blank">
+					<div class="b-post-nail-date">{{ post.dateString }}</div>
+					<img class="rounded" src="{{ post.coverImgSrc }}" width="200" />
+					<div class="b-post-nail-title">{{ post.title }}</div>
+				</a>
+			</div>
+		</ng-template>
+	</p-dataGrid>
+</div>
