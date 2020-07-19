@@ -1,0 +1,13 @@
+Username: osboxes
+Password: osboxes.org
+Root Account Password: osboxes.org
+
+
+# ansible-controller
+ssh osboxes@10.63.243.40
+
+# ansible-target1
+ssh osboxes@10.63.243.41
+
+# ansible-target2
+ssh osboxes@10.63.243.42

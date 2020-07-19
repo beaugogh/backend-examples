@@ -1,0 +1,10 @@
+-
+  name: Copy file to target servers
+  hosts: all
+  tasks:
+    - name: Copy file
+      # see the doc: https://docs.ansible.com/ansible/latest/modules/copy_module.html?highlight=copy
+      copy:
+        src: /tmp/foobar.txt
+        dest: /tmp/foobar.txt
+        
