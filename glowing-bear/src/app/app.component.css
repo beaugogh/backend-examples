@@ -1,0 +1,16 @@
+.gb-page {
+  padding: 20px;
+  margin: 0 auto;
+  max-width: 800px;
+}
+
+.gb-message-box {
+  margin-bottom: 15px;
+  padding: 8px 12px;
+}
+
+.gb-info {
+  color: black;
+  background-color: #f0f0f0;
+  border-left: 6px solid #13b4e6;
+}

@@ -1,0 +1,15 @@
+<div class="gb-container">
+  <!-- Split main panel -->
+  <as-split direction="horizontal" [gutterSize]="10">
+    <as-split-area [size]="25">
+      <gb-side-panel></gb-side-panel>
+    </as-split-area>
+    <as-split-area [size]="75">
+      <gb-nav-bar></gb-nav-bar>
+      <div class="gb-router-outlet-container">
+        <router-outlet></router-outlet>
+      </div>
+    </as-split-area>
+  </as-split>
+
+</div>

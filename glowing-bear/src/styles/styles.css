@@ -1,0 +1,170 @@
+@import "../../node_modules/primeng/resources/primeng.min.css";
+@import "../../node_modules/font-awesome/css/font-awesome.css";
+@import "../../node_modules/roboto-fontface/css/roboto/roboto-fontface.css";
+@import "../../node_modules/primeicons/primeicons.css";
+@import "./primeng-theme.css";
+@import "../../node_modules/material-design-icons/iconfont/material-icons.css";
+@import "./bootstrap.css";
+
+/*
+  custom variables
+*/
+:root {
+  --gb-loading-bg-color: #28AA9D;
+  --gb-orange-light: #ffa27f;
+  --gb-orange-light-light: #ffd9cb;
+  --gb-clinical-green: #339C90;
+  --gb-clinical-green-light: #84c3bc;
+  --gb-clinical-green-light-light: #c8eae6;
+  --gb-clinical-green-dark: #2d8c81;
+  --gb-gray-light: #bfbfbf;
+  --gb-gray: #808080;
+  --gb-gray-dark: #404040;
+  --gb-navbar-height: 50px;
+  --gb-navbar-height-extra: 52px;
+}
+
+/*
+  All elements have padding and border
+  included in the element's total width and height
+ */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #FCFCFC;
+  cursor: auto;
+}
+
+button,
+input,
+optgroup,
+select,
+textarea {
+  font-family: 'Roboto', sans-serif;
+}
+
+.loading-message {
+  background-color: var(--gb-loading-bg-color);
+  color: white;
+  font-family: 'Roboto', sans-serif;
+  font-size: 300%;
+  text-align: center;
+  padding: 200px;
+  opacity: .8;
+  border-color: transparent;
+  height: 100vh;
+  width: 100%;
+  display: block;
+}
+
+.loading-message img {
+  margin-top: -100px;
+  width: 60%;
+  height: auto;
+}
+
+body .gb-spinner {
+  display: none;
+  visibility: hidden;
+}
+
+body .gb-spinner.loading {
+  display: inline-block;
+  visibility: visible;
+}
+
+body .hline {
+  border-bottom: solid 1px var(--gb-clinical-green-dark);
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.fa-info {
+  margin-left: 0.5em;
+  border-radius: 1em;
+  background-color: white;
+  color: var(--gb-clinical-green-light);
+  border: 2px var(--gb-clinical-green-light) solid;
+  padding-left: 0.4em;
+  padding-right: 0.4em;
+  padding-top: 1px;
+  padding-bottom: 0px;
+  font-size: small;
+}
+
+.fa-info:hover {
+  background-color: var(--gb-clinical-green-light);;
+  color: white;
+}
+
+/*
+ * Style for PrimeNg growl messages
+ */
+.gb-container .ui-growl .ui-growl-message-warn {
+  background-color: #f4b30a;
+  color: white;
+}
+
+.gb-container .ui-growl .ui-growl-message-success {
+  background-color: #5db85c;
+  color: white;
+}
+
+.gb-container .ui-growl .ui-growl-message-info {
+  background-color: #5bc0de;
+  color: white;
+}
+
+.gb-container .ui-growl .ui-growl-message-error {
+  background-color: #d9534f;
+  color: white;
+}
+
+/*
+ * Fractalis chart settings panel
+ * to be removed after replacing default panel with one
+ */
+.fjs-control-panel {
+  margin-top: 50px !important;
+  background-color: var(--gb-clinical-green-light-light) !important;
+  opacity: 0.9;
+  color: rgba(0, 0, 0, 0.87) !important;
+}
+
+
+/* Change input placeholder text color */
+::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+  color: lightgray;
+}
+
+:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+  color: lightgray;
+  opacity: 1;
+}
+
+::-moz-placeholder { /* Mozilla Firefox 19+ */
+  color: lightgray;
+  opacity: 1;
+}
+
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+  color: lightgray;
+}
+
+.form-control::-webkit-input-placeholder {
+  color: lightgray;
+}
+
+.form-control:-moz-placeholder {
+  color: lightgray;
+}
+
+.form-control::-moz-placeholder {
+  color: lightgray;
+}
+
+.form-control:-ms-input-placeholder {
+  color: lightgray;
+}

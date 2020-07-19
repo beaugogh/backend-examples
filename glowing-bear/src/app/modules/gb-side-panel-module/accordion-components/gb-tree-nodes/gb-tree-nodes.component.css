@@ -1,0 +1,18 @@
+.metadata-row {
+  font-size: small;
+}
+
+/*Make the font size in the tree smaller*/
+:host >>> p-treenode {
+  font-size: small;
+}
+
+/*
+ * style class for loading tree nodes and patient counts
+ */
+/*style fix for the primeng tree-container in the side-panel*/
+:host >>> .gb-tree-container {
+  width: auto;
+  background-color: transparent;
+  border: none;
+}

@@ -1,0 +1,75 @@
+.fa-plus{
+  color: white;
+}
+
+.export-container {
+  margin-top: var(--gb-navbar-height-extra);
+  padding: 0.5em;
+  text-align: center;
+  font-size: small;
+}
+
+.form-inline {
+  margin: 5px;
+}
+
+#exportTaskNameInput {
+  margin-right: 10px;
+}
+
+.gb-export-format-header {
+  margin-bottom: 10px;
+}
+
+.gb-export-format-container {
+  text-align: left;
+  margin-left: 10px;
+}
+
+.gb-export-btn-container {
+  margin-top: 20px;
+}
+
+.gb-export-format-item {
+  background-color: transparent;
+  padding: 2px 6px 2px 6px;
+}
+
+#exportJobNameInput {
+  margin-top: 0px;
+}
+
+.section-banner {
+  color: gray;
+  padding: 0px;
+  margin-bottom: 10px;
+  text-align: left;
+  font-size: large;
+  font-weight: 500;
+}
+.section-banner i {
+  text-align: center;
+}
+
+.export-container .loading-text {
+  font-size: medium;
+  color: darkgray;
+  text-align: left;
+  padding-left: 2em;
+}
+
+.gb-include-date-columns-checkbox {
+  padding-left: 10px;
+}
+
+.gb-data-table-information-text {
+  color: white;
+  font-size: medium;
+  text-align: left;
+}
+
+:host >>> .ui-paginator-bottom,
+:host >>> .ui-paginator-element,
+:host >>> .ui-paginator-pages {
+  min-height: 2em;
+}

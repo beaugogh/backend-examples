@@ -1,0 +1,9 @@
+<p-growl [(value)]="messages" life="3000"></p-growl>
+
+<gb-main *ngIf="authenticationCompleted"></gb-main>
+
+<div class="gb-page" *ngIf="!authenticationCompleted">
+  <div class="gb-message-box gb-info">
+  You are being redirected to the login page to authenticate ...
+  </div>
+</div>
